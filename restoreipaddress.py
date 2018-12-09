@@ -3,7 +3,8 @@
 """
 https://leetcode.com/problems/restore-ip-addresses/
 
-Given a string containing only digits, restore it by returning all possible valid IP address combinations.
+Given a string containing only digits, restore it by returning all
+possible valid IP address combinations.
 
 Example:
 
@@ -13,6 +14,7 @@ Output: ["255.255.11.135", "255.255.111.35"]
 """
 
 class Solution:
+
     def restoreIpAddresses(self, s):
         """
         :type s: str
@@ -20,6 +22,9 @@ class Solution:
         """
 
         def getipaddr(fulllist, thislist, substr):
+            """
+            get ip subnet address from string
+            """
 
             # if len(thislist) == 4 and len(substr) == 0:
             #     fulllist.append(thislist)
@@ -73,7 +78,6 @@ class Solution:
                         thislist.append(substr)
                         fulllist.append(".".join(thislist))
 
-
         fulllist = list()
         myl = list()
         getipaddr(fulllist, myl, s)
@@ -84,12 +88,11 @@ class Solution:
 
 if __name__ == "__main__":
 
-
     s1 = "25525511135"
     exp1 = ["255.255.11.135", "255.255.111.35"]
 
     s2 = "010010"
-    exp2 = ["0.10.0.10","0.100.1.0"]
+    exp2 = ["0.10.0.10", "0.100.1.0"]
 
     tests = [(s1, exp1), (s2, exp2)]
 
@@ -101,4 +104,3 @@ if __name__ == "__main__":
         print("exp = {}".format(exp))
         print("rc  = {}".format(rc))
         print("{}".format(exp == rc))
-
